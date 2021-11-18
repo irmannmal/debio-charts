@@ -114,7 +114,7 @@ Create the name of sudo Substrate Mnemonic secret.
 Create the name of sudo debioEscrowPrivateKey secret.
 */}}
 {{- define "debio-backend.debioEscrowPrivateKeySecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "debio-escrow-privateKey" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "debio-escrow-private-key" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
