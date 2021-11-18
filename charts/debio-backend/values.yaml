@@ -14,24 +14,47 @@ image:
 imagePullSecrets: []
 
 config:
-  rpcWSURL: ""
-  faucetMnemonic: ""
-  rewardAmount: 1
-  acalaAUSDRewardAmount: 0
-  mongo:
+  swagger:
+    enable: false
+  port: 3000
+  postgres:
     host: ""
-    port: 27017
-    user: ""
+    username: ""
     password: ""
-    database: myriad
-  firebase:
+    dbname: ""
+    dbCity: ""
+    dbLocation: ""
+  substrateURL: ""
+  debioETHAddress: ""
+  escrowSubstrateMnemonic: ""
+  faucetSubstrateMnemonic: ""
+  sudoSubstrateMnemonic: ""
+  web3RPC: ""
+  web3RPCHttps: ""
+  debioEscrowPrivateKey: ""
+  contractAddress: ""
+  escrowContractAddress: ""
+  serviceRequestContractAddress: ""
+  coinmarketcapApiKey: ""
+  recaptchaSecretKey: ""
+  debioApiKey: ""
+  elastic:
+    node: ""
+    username: ""
+    password: ""
+  email:
+    email: ""
+    password: ""
+  bucketname: ""
+  storageBaseURI: ""
+  google:
     serviceAccountBase64: ""
-  sentry:
-    dns: ""
-  twitter:
-    bearerToken: ""
-  coinMarketCap:
-    apiKey: ""
+  startupProbe:
+    path: ""
+  livenessProbe:
+    path: ""
+  readinessProbe:
+    path: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
