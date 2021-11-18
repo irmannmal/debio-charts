@@ -1,5 +1,19 @@
 apiVersion: v1
 entries:
+  debio-indexer:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2021-11-18T06:06:51.639751144Z"
+    description: A Helm chart for Kubernetes
+    digest: 6aacb7fcfe3690f5593aa45d4082f77a099037a1c68a3b7f9408306b34b982a8
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-indexer
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-indexer-0.0.1/debio-indexer-0.0.1.tgz
+    version: 0.0.1
   debio-node:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -11,4 +25,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.2/debio-node-0.0.2.tgz
     version: 0.0.2
-generated: "2021-11-18T06:00:48.342200526Z"
+generated: "2021-11-18T06:06:51.639764744Z"
