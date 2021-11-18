@@ -59,7 +59,7 @@ spec:
           env:
             {{- if .Values.config.swagger.enable }}
             - name: SWAGGER_ENABLE
-              value: {{ .Values.config.swagger.enable }}
+              value: "{{ .Values.config.swagger.enable }}"
             {{- end }}
             {{- if .Values.config.port }}
             - name: PORT
