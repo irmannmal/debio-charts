@@ -94,12 +94,12 @@ spec:
                   name: {{ include "debio-backend.dbCitySecretName" . }}
                   key: dbCity
             {{- end }}
-            {{- if .Values.config.postgres.dbLocation }}
+            {{- if .Values.config.postgres.dbLocations }}
             - name: DB_LOCATIONS
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-backend.dbLocationSecretName" . }}
-                  key: dbLocation
+                  name: {{ include "debio-backend.dbLocationsSecretName" . }}
+                  key: dbLocations
             {{- end }}
             {{- if .Values.config.substrateURL }}
             - name: SUBSTRATE_URL

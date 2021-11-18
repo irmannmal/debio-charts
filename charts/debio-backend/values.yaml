@@ -23,7 +23,7 @@ config:
     password: ""
     dbname: ""
     dbCity: ""
-    dbLocation: ""
+    dbLocations: ""
   substrateURL: ""
   debioETHAddress: ""
   escrowSubstrateMnemonic: ""
