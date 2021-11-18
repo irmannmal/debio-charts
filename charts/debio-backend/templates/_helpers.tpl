@@ -79,7 +79,7 @@ Create the name of postgres secret.
 Create the name of dbLocations secret.
 */}}
 {{- define "debio-backend.dbLocationsSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "dbLocations" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "dblocations" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
