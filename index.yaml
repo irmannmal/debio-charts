@@ -66,6 +66,20 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-backend-0.0.1/debio-backend-0.0.1.tgz
     version: 0.0.1
+  debio-customer-ui:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2021-11-19T08:45:04.217140551Z"
+    description: A Helm chart for Kubernetes
+    digest: c77e1e68cf8d2fe62160df53e984d29c067e61c3899df58d52f77ed93c22fe60
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-customer-ui
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-customer-ui-0.0.1/debio-customer-ui-0.0.1.tgz
+    version: 0.0.1
   debio-indexer:
   - apiVersion: v2
     appVersion: 0.0.1
@@ -91,4 +105,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.2/debio-node-0.0.2.tgz
     version: 0.0.2
-generated: "2021-11-18T17:00:33.206262726Z"
+generated: "2021-11-19T08:45:04.217153851Z"
