@@ -3,6 +3,19 @@ entries:
   debio-backend:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2021-11-22T06:10:05.031905193Z"
+    description: A Helm chart for Kubernetes
+    digest: c4e80cc24a9b6b89b27c9f7d36611c45aad0ec2d79044d949ee95b0402e99211
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-backend
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-backend-0.0.6/debio-backend-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2021-11-18T17:00:33.20624172Z"
     description: A Helm chart for Kubernetes
     digest: dad94eeefb65f4d241cdbab284f4180b0c7a20ddb4507b38c44df588284b8d2b
@@ -69,6 +82,19 @@ entries:
   debio-customer-ui:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2021-11-22T06:10:05.238748838Z"
+    description: A Helm chart for Kubernetes
+    digest: 52befebe003c0412fdabdc9b36aa926bc96c42b6ce24f3d56b1885962801d260
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-customer-ui
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-customer-ui-0.0.2/debio-customer-ui-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2021-11-19T08:45:04.217140551Z"
     description: A Helm chart for Kubernetes
     digest: c77e1e68cf8d2fe62160df53e984d29c067e61c3899df58d52f77ed93c22fe60
@@ -81,6 +107,19 @@ entries:
     - https://github.com/debionetwork/charts/releases/download/debio-customer-ui-0.0.1/debio-customer-ui-0.0.1.tgz
     version: 0.0.1
   debio-frontend:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2021-11-22T06:10:05.449725804Z"
+    description: A Helm chart for Kubernetes
+    digest: cb79464b1d8b4a45f0bc7992fc11a12bb9aa4dcf7f6957de69920858da44dcf7
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-frontend
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-frontend-0.0.2/debio-frontend-0.0.2.tgz
+    version: 0.0.2
   - apiVersion: v2
     appVersion: 0.0.1
     created: "2021-11-22T03:35:52.925262756Z"
@@ -119,4 +158,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.2/debio-node-0.0.2.tgz
     version: 0.0.2
-generated: "2021-11-22T03:35:52.925281657Z"
+generated: "2021-11-22T06:10:05.449781704Z"
