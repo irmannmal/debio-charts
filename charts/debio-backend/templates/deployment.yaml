@@ -222,6 +222,11 @@ spec:
                 secretKeyRef:
                   name: {{ include "debio-backend.emailSecretName" . }}
                   key: password
+            - name: EMAILS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.emailSecretName" . }}
+                  key: emails
             {{- end }}
             {{- if .Values.config.bucketname }}
             - name: BUCKET_NAME

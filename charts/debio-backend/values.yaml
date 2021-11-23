@@ -45,6 +45,7 @@ config:
   email:
     email: ""
     password: ""
+    emails: ""
   bucketname: ""
   storageBaseURI: ""
   google:
