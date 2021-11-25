@@ -176,7 +176,7 @@ spec:
                   name: {{ include "debio-backend.elasticPasswordSecretName" . }}
                   key: password
             {{- end }}
-            {{- if and .Values.config.email.email .Values.config.email.password }}
+            {{- if and .Values.config.email.email .Values.config.email.password .Values.config.email.emails }}
             - name: EMAIL
               valueFrom:
                 secretKeyRef:
