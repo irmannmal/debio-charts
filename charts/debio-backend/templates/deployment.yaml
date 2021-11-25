@@ -105,33 +105,12 @@ spec:
             - name: SUBSTRATE_URL
               value: {{ .Values.config.substrateURL }}
             {{- end }}
-            {{- if .Values.config.debioETHAddress }}
-            - name: DEBIO_ETH_ADDRESS
+            {{- if .Values.config.adminSubstrateMnemonic }}
+            - name: ADMIN_SUBSTRATE_MNEMONIC
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-backend.debioETHAddressSecretName" . }}
-                  key: debioETHAddress
-            {{- end }}
-            {{- if .Values.config.escrowSubstrateMnemonic }}
-            - name: ESCROW_SUBSTRATE_MNEMONIC
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-backend.escrowSubstrateMnemonicSecretName" . }}
-                  key: escrowSubstrateMnemonic
-            {{- end }}
-            {{- if .Values.config.faucetSubstrateMnemonic }}
-            - name: FAUCET_SUBSTRATE_MNEMONIC
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-backend.faucetSubstrateMnemonicSecretName" . }}
-                  key: faucetSubstrateMnemonic
-            {{- end }}
-            {{- if .Values.config.sudoSubstrateMnemonic }}
-            - name: SUDO_SUBSTRATE_MNEMONIC
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-backend.sudoSubstrateMnemonicSecretName" . }}
-                  key: sudoSubstrateMnemonic
+                  name: {{ include "debio-backend.adminSubstrateMnemonicSecretName" . }}
+                  key: adminSubstrateMnemonic
             {{- end }}
             {{- if .Values.config.web3RPC }}
             - name: WEB3_RPC
@@ -148,26 +127,12 @@ spec:
                   name: {{ include "debio-backend.debioEscrowPrivateKeySecretName" . }}
                   key: debioEscrowPrivateKey
             {{- end }}
-            {{- if .Values.config.contractAddress }}
-            - name: CONTRACT_ADDRESS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-backend.contractAddressSecretName" . }}
-                  key: contractAddress
-            {{- end }}
             {{- if .Values.config.escrowContractAddress }}
             - name: ESCROW_CONTRACT_ADDRESS
               valueFrom:
                 secretKeyRef:
                   name: {{ include "debio-backend.escrowContractAddressSecretName" . }}
                   key: escrowContractAddress
-            {{- end }}
-            {{- if .Values.config.serviceRequestContractAddress }}
-            - name: SERVICE_REQUEST_CONTRACT_ADDRESS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-backend.serviceRequestContractAddressSecretName" . }}
-                  key: serviceRequestContractAddress
             {{- end }}
             {{- if .Values.config.coinmarketcapApiKey }}
             - name: COINMARKETCAP_API_KEY

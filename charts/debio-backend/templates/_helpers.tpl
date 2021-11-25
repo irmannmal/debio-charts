@@ -83,31 +83,10 @@ Create the name of dbLocations secret.
 {{- end }}
 
 {{/*
-Create the name of debio ETH Address secret.
-*/}}
-{{- define "debio-backend.debioETHAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "debio-eth-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Create the name of escrow Substrate Mnemonic secret.
 */}}
 {{- define "debio-backend.escrowSubstrateMnemonicSecretName" -}}
 {{- printf "%s-%s" (include "debio-backend.fullname" .) "escrow-substrate-mnemonic" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of faucet Substrate Mnemonic secret.
-*/}}
-{{- define "debio-backend.faucetSubstrateMnemonicSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "faucet-substrate-mnemonic" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of sudo Substrate Mnemonic secret.
-*/}}
-{{- define "debio-backend.sudoSubstrateMnemonicSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "sudo-substrate-mnemonic" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -118,24 +97,10 @@ Create the name of sudo debioEscrowPrivateKey secret.
 {{- end }}
 
 {{/*
-Create the name of sudo contractAddress secret.
-*/}}
-{{- define "debio-backend.contractAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "contract-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Create the name of sudo escrowContractAddress secret.
 */}}
 {{- define "debio-backend.escrowContractAddressSecretName" -}}
 {{- printf "%s-%s" (include "debio-backend.fullname" .) "escrow-contract-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of sudo serviceRequestContractAddress secret.
-*/}}
-{{- define "debio-backend.serviceRequestContractAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "service-request-contract-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
