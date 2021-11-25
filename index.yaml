@@ -3,6 +3,19 @@ entries:
   debio-backend:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2021-11-25T10:04:46.386643622Z"
+    description: A Helm chart for Kubernetes
+    digest: 038d5ea32b26ac7a4c532e7581708a29af1b8d380e6ebf67fb3d7050ffcc28e4
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-backend
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-backend-0.0.10/debio-backend-0.0.10.tgz
+    version: 0.0.10
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2021-11-25T09:59:32.800923558Z"
     description: A Helm chart for Kubernetes
     digest: 0ff703a28a53b37ba2beb0ca20f29d1c50fc9fd09ed2d174cc72c02b96a80909
@@ -197,4 +210,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.2/debio-node-0.0.2.tgz
     version: 0.0.2
-generated: "2021-11-25T09:59:32.800963358Z"
+generated: "2021-11-25T10:04:46.386729922Z"
