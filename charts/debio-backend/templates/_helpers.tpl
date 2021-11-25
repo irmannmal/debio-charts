@@ -85,8 +85,8 @@ Create the name of dbLocations secret.
 {{/*
 Create the name of escrow Substrate Mnemonic secret.
 */}}
-{{- define "debio-backend.escrowSubstrateMnemonicSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "escrow-substrate-mnemonic" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- define "debio-backend.adminSubstrateMnemonicSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "admin-substrate-mnemonic" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
