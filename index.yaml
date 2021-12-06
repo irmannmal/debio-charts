@@ -215,6 +215,19 @@ entries:
   debio-node:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2021-12-06T10:53:01.397005801Z"
+    description: A Helm chart for Kubernetes
+    digest: ae96f037a25830d0e0d9b8c5d68428b47bcf906b8ed22966411fe54a4c7d29fb
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-node
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.3/debio-node-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2021-11-18T06:00:48.342195926Z"
     description: A Helm chart for Kubernetes
     digest: 5712e86b6c420218b19bd8c1577ce99968cce550cc58914f6353b77a6dae2c1f
@@ -223,4 +236,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-node-0.0.2/debio-node-0.0.2.tgz
     version: 0.0.2
-generated: "2021-11-25T10:12:47.894722308Z"
+generated: "2021-12-06T10:53:01.397049801Z"
