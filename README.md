@@ -16,12 +16,16 @@ DeBio Network Helm Charts
 
 ## Chart Sources
 
-* `charts/debio-node`: Myriad node chart
+* `charts/debio-node`: DeBio Node Chart
+* `charts/debio-indexer`: DeBio Indexer Chart
+* `charts/debio-backend`: DeBio API Chart
+* `charts/debio-customer-ui`: DeBio App Chart
+* `charts/debio-frontend`: DeBio Lab Chart
 
 ## Usage
 
 ```bash
-helm repo add myriad https://charts.myriad.social
+helm repo add debio https://charts.debio.network
 helm repo update
-helm install debio-node myriad/debio-node
+helm install debio-node debio/debio-node
 ```
