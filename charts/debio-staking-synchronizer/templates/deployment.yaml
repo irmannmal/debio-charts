@@ -1,0 +1,145 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "debio-staking-synchronizer.fullname" . }}
+  labels:
+    {{- include "debio-staking-synchronizer.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "debio-staking-synchronizer.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "debio-staking-synchronizer.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "debio-staking-synchronizer.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            {{- if .Values.config.port }}
+            - name: PORT
+              value: "{{ .Values.config.port }}"
+            {{- end }}
+            {{- if and .Values.config.postgres.host .Values.config.postgres.username .Values.config.postgres.password .Values.config.postgres.dbname }}
+            - name: HOST_POSTGRES
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.postgresSecretName" . }}
+                  key: host
+            - name: USERNAME_POSTGRES
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.postgresSecretName" . }}
+                  key: username
+            - name: PASSWORD_POSTGRES
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.postgresSecretName" . }}
+                  key: password
+            - name: DB_POSTGRES
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.postgresSecretName" . }}
+                  key: dbname
+            {{- end }}
+            {{- if .Values.config.postgres.dbLocations }}
+            - name: DB_LOCATIONS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.dbLocationsSecretName" . }}
+                  key: dbLocations
+            {{- end }}
+            {{- if .Values.config.substrateURL }}
+            - name: SUBSTRATE_URL
+              value: {{ .Values.config.substrateURL }}
+            {{- end }}
+            {{- if .Values.config.substrateMnemonic }}
+            - name: SUBSTRATE_MNEMONIC
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.substrateMnemonicSecretName" . }}
+                  key: substrateMnemonic
+            {{- end }}
+            {{- if .Values.config.bucketname }}
+            - name: BUCKET_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.bucketnameSecretName" . }}
+                  key: bucketname
+            {{- end }}
+            {{- if .Values.config.storageBaseURI }}
+            - name: STORAGE_BASE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-staking-synchronizer.storageBaseURISecretName" . }}
+                  key: storageBaseURI
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: 3000
+              protocol: TCP
+          {{- if .Values.config.startupProbe.path }}
+          startupProbe:
+            httpGet:
+              path: {{ .Values.config.startupProbe.path }}
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 30
+            successThreshold: 1
+          {{- end }}
+          {{- if .Values.config.livenessProbe.path }}
+          livenessProbe:
+            httpGet:
+              path: {{ .Values.config.livenessProbe.path }}
+              port: http
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+            successThreshold: 1
+          {{- end }}
+          {{- if .Values.config.readinessProbe.path }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.config.readinessProbe.path }}
+              port: http
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 6
+            successThreshold: 1
+          {{- end }}
