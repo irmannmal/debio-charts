@@ -147,6 +147,19 @@ entries:
   debio-customer-ui:
   - apiVersion: v2
     appVersion: 0.0.1
+    created: "2021-12-10T07:08:52.865812903Z"
+    description: A Helm chart for Kubernetes
+    digest: 9259846b638b9855e4fb52dd88c216c66406939c482d44e5a6946adb7d950d35
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-customer-ui
+    type: application
+    urls:
+    - https://github.com/debionetwork/charts/releases/download/debio-customer-ui-0.0.3/debio-customer-ui-0.0.3.tgz
+    version: 0.0.3
+  - apiVersion: v2
+    appVersion: 0.0.1
     created: "2021-11-22T06:10:05.238748838Z"
     description: A Helm chart for Kubernetes
     digest: 52befebe003c0412fdabdc9b36aa926bc96c42b6ce24f3d56b1885962801d260
@@ -250,4 +263,4 @@ entries:
     urls:
     - https://github.com/debionetwork/charts/releases/download/debio-staking-synchronizer-0.0.1/debio-staking-synchronizer-0.0.1.tgz
     version: 0.0.1
-generated: "2021-12-09T03:51:38.400470115Z"
+generated: "2021-12-10T07:08:52.865867709Z"
