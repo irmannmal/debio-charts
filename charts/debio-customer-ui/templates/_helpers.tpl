@@ -76,20 +76,6 @@ Create the name of debioEscrowETHAddress secret.
 {{- end }}
 
 {{/*
-Create the name of devDebioEscrowETHAddress secret.
-*/}}
-{{- define "debio-customer-ui.devDebioEscrowETHAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-customer-ui.fullname" .) "dev-debio-escrow-eth-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of daiContractAddress secret.
-*/}}
-{{- define "debio-customer-ui.daiContractAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-customer-ui.fullname" .) "dai-contract-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Create the name of debioApiKey secret.
 */}}
 {{- define "debio-customer-ui.debioApiKeySecretName" -}}
