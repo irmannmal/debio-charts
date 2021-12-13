@@ -83,12 +83,12 @@ spec:
             - name: SUBSTRATE_URL
               value: {{ .Values.config.substrateUrl }}
             {{- end }}
-            {{- if .Values.config.web3Rpc }}
-            - name: WEB3_RPC
+            {{- if .Values.config.web3RpcHttps }}
+            - name: WEB3_RPC_HTTPS
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.web3RpcSecretName" . }}
-                  key: web3Rpc
+                  name: {{ include "debio-indexer.web3RpcHttpsSecretName" . }}
+                  key: web3RpcHttps
             {{- end }}
           ports:
             - name: http

@@ -9,7 +9,7 @@ image:
   repository: debionetwork/debio-indexer
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: latest
 
 imagePullSecrets: []
 
@@ -21,7 +21,7 @@ config:
   minimalStartingBlock: ""
   requestServiceContractAddress: ""
   substrateUrl: ""
-  web3Rpc: ""
+  web3RpcHttps: ""
   startupProbe:
     path: ""
   livenessProbe:
