@@ -88,10 +88,3 @@ Create the name of minimal substrate Url secret.
 {{- define "debio-indexer.substrateUrlSecretName" -}}
 {{- printf "%s-%s" (include "debio-indexer.fullname" .) "substrate-url" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
-
-{{/*
-Create the name of minimal web3 Rpc Block secret.
-*/}}
-{{- define "debio-indexer.web3RpcHttpsSecretName" -}}
-{{- printf "%s-%s" (include "debio-indexer.fullname" .) "web-rpc-https" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}

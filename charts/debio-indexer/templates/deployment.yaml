@@ -85,10 +85,7 @@ spec:
             {{- end }}
             {{- if .Values.config.web3RpcHttps }}
             - name: WEB3_RPC_HTTPS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-indexer.web3RpcHttpsSecretName" . }}
-                  key: web3RpcHttps
+              value: {{ .Values.config.web3RpcHttps }}
             {{- end }}
           ports:
             - name: http
