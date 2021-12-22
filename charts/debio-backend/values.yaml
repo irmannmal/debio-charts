@@ -37,6 +37,10 @@ config:
     node: ""
     username: ""
     password: ""
+  redis:
+    url: ""
+    username: ""
+    password: ""
   email:
     email: ""
     password: ""

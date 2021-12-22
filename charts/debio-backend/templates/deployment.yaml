@@ -176,6 +176,27 @@ spec:
                   name: {{ include "debio-backend.elasticPasswordSecretName" . }}
                   key: password
             {{- end }}
+            {{- if .Values.config.redis.url }}
+            - name: REDIS_STORE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisUrlSecretName" . }}
+                  key: url
+            {{- end }}
+            {{- if .Values.config.redis.username }}
+            - name: REDIS_STORE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisUsernameSecretName" . }}
+                  key: username
+            {{- end }}
+            {{- if .Values.config.redis.password }}
+            - name: REDIS_STORE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisPasswordSecretName" . }}
+                  key: password
+            {{- end }}
             {{- if and .Values.config.email.email .Values.config.email.password .Values.config.email.emails }}
             - name: EMAIL
               valueFrom:

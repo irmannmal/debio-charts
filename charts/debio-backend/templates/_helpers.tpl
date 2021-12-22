@@ -146,6 +146,27 @@ Create the name of elastic.password secret.
 {{- end }}
 
 {{/*
+Create the name of redis url secret.
+*/}}
+{{- define "debio-backend.redisUrlSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-url" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Create the name of redis.username secret.
+*/}}
+{{- define "debio-backend.redisUsernameSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-username" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Create the name of redis.password secret.
+*/}}
+{{- define "debio-backend.redisPasswordSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-password" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of email secret.
 */}}
 {{- define "debio-backend.emailSecretName" -}}
