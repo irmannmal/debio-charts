@@ -228,6 +228,10 @@ spec:
                   name: {{ include "debio-backend.storageBaseURISecretName" . }}
                   key: storageBaseURI
             {{- end }}
+            {{- if .Values.config.healthcheck }}
+            - name: BACKEND_HEALTHCHECK_URL
+              value: {{ .Values.config.healthcheck }}
+            {{- end }}
             {{- if .Values.config.google.serviceAccountBase64 }}
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/google/sa_credentials.json

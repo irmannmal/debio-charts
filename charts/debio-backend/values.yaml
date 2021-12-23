@@ -49,6 +49,7 @@ config:
   storageBaseURI: ""
   google:
     serviceAccountBase64: ""
+  healthcheck: ""
   startupProbe:
     path: ""
   livenessProbe:
