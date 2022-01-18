@@ -148,7 +148,7 @@ Create the name of elastic.password secret.
 {{/*
 Create the name of redis store secret.
 */}}
-{{- define "debio-backend.redisUrlSecretName" -}}
+{{- define "debio-backend.redisStoreSecretName" -}}
 {{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-store" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
