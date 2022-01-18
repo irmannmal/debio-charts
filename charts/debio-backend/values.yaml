@@ -42,9 +42,9 @@ config:
     username: ""
     password: ""
   redis:
-    host:
-    port:
-    password:
+    host: ""
+    port: ""
+    password: ""
   email:
     email: ""
     password: ""

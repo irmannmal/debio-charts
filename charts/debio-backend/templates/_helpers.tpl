@@ -156,7 +156,7 @@ Create the name of redis store secret.
 Create the name of redis server secret.
 */}}
 {{- define "debio-backend.redisSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-server" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
