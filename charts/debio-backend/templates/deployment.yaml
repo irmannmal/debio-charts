@@ -197,6 +197,29 @@ spec:
                   name: {{ include "debio-backend.redisPasswordSecretName" . }}
                   key: password
             {{- end }}
+
+            {{- if .Values.config.redisServer.host }}
+            - name: HOST_REDIS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisServerSecretName" . }}
+                  key: host
+            {{- end }}
+            {{- if .Values.config.redisServer.port }}
+            - name: PORT_REDIS
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisServerSecretName" . }}
+                  key: port
+            {{- end }}
+            {{- if .Values.config.redisServer.password }}
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.redisServerSecretName" . }}
+                  key: password
+            {{- end }}
+
             {{- if and .Values.config.email.email .Values.config.email.password .Values.config.email.emails }}
             - name: EMAIL
               valueFrom:

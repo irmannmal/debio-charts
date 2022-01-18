@@ -41,6 +41,10 @@ config:
     url: ""
     username: ""
     password: ""
+  redisServer:
+    host:
+    port:
+    password:
   email:
     email: ""
     password: ""

@@ -167,6 +167,13 @@ Create the name of redis.password secret.
 {{- end }}
 
 {{/*
+Create the name of redis server secret.
+*/}}
+{{- define "debio-backend.redisServerSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-server" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of email secret.
 */}}
 {{- define "debio-backend.emailSecretName" -}}
