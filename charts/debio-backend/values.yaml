@@ -37,11 +37,11 @@ config:
     node: ""
     username: ""
     password: ""
-  redis:
+  redisStore:
     url: ""
     username: ""
     password: ""
-  redisServer:
+  redis:
     host:
     port:
     password:

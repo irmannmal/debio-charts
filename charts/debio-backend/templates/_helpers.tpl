@@ -146,31 +146,17 @@ Create the name of elastic.password secret.
 {{- end }}
 
 {{/*
-Create the name of redis url secret.
+Create the name of redis store secret.
 */}}
 {{- define "debio-backend.redisUrlSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-url" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of redis.username secret.
-*/}}
-{{- define "debio-backend.redisUsernameSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-username" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of redis.password secret.
-*/}}
-{{- define "debio-backend.redisPasswordSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-password" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-store" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Create the name of redis server secret.
 */}}
-{{- define "debio-backend.redisServerSecretName" -}}
-{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis-server" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- define "debio-backend.redisSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "redis" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
