@@ -16,11 +16,13 @@ DeBio Network Helm Charts
 
 ## Chart Sources
 
-* `charts/debio-node`: DeBio Node Chart
-* `charts/debio-indexer`: DeBio Indexer Chart
-* `charts/debio-backend`: DeBio API Chart
-* `charts/debio-customer-ui`: DeBio App Chart
-* `charts/debio-frontend`: DeBio Lab Chart
+* `charts/debio-node`: [DeBio Node Chart](/charts/debio-node)
+* `charts/debio-indexer`: [DeBio Indexer Chart](/charts/debio-indexer)
+* `charts/debio-backend`: [DeBio API Chart](/charts/debio-backend)
+* `charts/debio-customer-ui`: [DeBio App Chart](/charts/debio-customer-ui)
+* `charts/debio-frontend`: [DeBio Lab Chart](/charts/debio-frontend)
+* `charts/debio-conversion`: [DeBio Conversion](/charts/debio-conversion)
+* `charts/debio-staking-synchronizer`: [DeBio Staking Synchronizer](/charts/debio-staking-synchronizer)
 
 ## Usage
 
