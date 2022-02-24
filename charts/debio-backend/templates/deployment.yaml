@@ -88,7 +88,7 @@ spec:
                   key: dbname
             {{- end }}
             {{- if .Values.config.postgres.dbCity }}
-            - name: DB_LOCATIONS
+            - name: DB_CITY
               valueFrom:
                 secretKeyRef:
                   name: {{ include "debio-backend.dbCitySecretName" . }}
@@ -249,6 +249,14 @@ spec:
                 secretKeyRef:
                   name: {{ include "debio-backend.storageBaseURISecretName" . }}
                   key: storageBaseURI
+            {{- end }}
+            {{- if .Values.config.unstake.interval }}
+            - name: UNSTAKE_INTERVAL
+              value: "{{ .Values.config.unstake.interval }}"
+            {{- end }}
+            {{- if .Values.config.unstake.timer }}
+            - name: UNSTAKE_TIMER
+              value: "{{ .Values.config.unstake.timer }}"
             {{- end }}
             {{- if .Values.config.healthcheck }}
             - name: BACKEND_HEALTHCHECK_URL

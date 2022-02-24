@@ -53,6 +53,9 @@ config:
   storageBaseURI: ""
   google:
     serviceAccountBase64: ""
+  unstake:
+    interval: ""
+    timer: ""
   healthcheck: ""
   startupProbe:
     path: ""
