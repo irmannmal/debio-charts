@@ -1,0 +1,45 @@
+apiVersion: v1
+entries:
+  debio-customer-ui:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-03-01T09:32:55.383441335Z"
+    description: A Helm chart for Kubernetes
+    digest: f88de878e9634ae5c893b7d8781cf14976c9b6c1872372741be85b298bc2eeb0
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-customer-ui
+    type: application
+    urls:
+    - https://github.com/debionetwork/debio-charts/releases/download/debio-customer-ui-1.0.0/debio-customer-ui-1.0.0.tgz
+    version: 1.0.0
+  debio-frontend:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-03-01T09:32:55.578069546Z"
+    description: A Helm chart for Kubernetes
+    digest: 724e66a57aa99ba49dcbe2b3d243e317c6b43c22ed26be0551a0631556f1d295
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-frontend
+    type: application
+    urls:
+    - https://github.com/debionetwork/debio-charts/releases/download/debio-frontend-1.0.0/debio-frontend-1.0.0.tgz
+    version: 1.0.0
+  debio-genetic-analyst-ui:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-03-01T09:32:55.807734956Z"
+    description: A Helm chart for Kubernetes
+    digest: 6fc93e91446bd2f7404db33cadf5d5c32121e5d82d5343565bc9f3737b724a68
+    maintainers:
+    - email: debio.dev@blocksphere.id
+      name: debionetwork
+    name: debio-genetic-analyst-ui
+    type: application
+    urls:
+    - https://github.com/debionetwork/debio-charts/releases/download/debio-genetic-analyst-ui-1.0.0/debio-genetic-analyst-ui-1.0.0.tgz
+    version: 1.0.0
+generated: "2022-03-01T09:32:55.807740156Z"
