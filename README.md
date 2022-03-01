@@ -16,13 +16,13 @@ DeBio Network Helm Charts
 
 ## Chart Sources
 
-* `charts/debio-node`: [DeBio Node Chart](/charts/debio-node)
-* `charts/debio-indexer`: [DeBio Indexer Chart](/charts/debio-indexer)
-* `charts/debio-backend`: [DeBio API Chart](/charts/debio-backend)
-* `charts/debio-customer-ui`: [DeBio App Chart](/charts/debio-customer-ui)
-* `charts/debio-frontend`: [DeBio Lab Chart](/charts/debio-frontend)
-* `charts/debio-conversion`: [DeBio Conversion](/charts/debio-conversion)
-* `charts/debio-staking-synchronizer`: [DeBio Staking Synchronizer](/charts/debio-staking-synchronizer)
+* `charts/debio-node`: [DeBio Node Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-node)
+* `charts/debio-indexer`: [DeBio Indexer Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-indexer)
+* `charts/debio-backend`: [DeBio API Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-backend)
+* `charts/debio-customer-ui`: [DeBio App Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-customer-ui)
+* `charts/debio-frontend`: [DeBio Lab Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-frontend)
+* `charts/debio-conversion`: [DeBio Conversion](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-conversion)
+* `charts/debio-staking-synchronizer`: [DeBio Staking Synchronizer](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-staking-synchronizer)
 
 ## Usage
 

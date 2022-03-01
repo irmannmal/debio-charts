@@ -14,22 +14,6 @@ image:
 imagePullSecrets: []
 
 config:
-  debioBackendURL: ""
-  recaptchaSiteKey: ""
-  appRole: ""
-  debioUseTokenName: ""
-  debioEscrowETHAddress: ""
-  debioSubstrateWs: ""
-  urlFaucet: ""
-  web3Rpc: ""
-  devDebioBackendUrl: ""
-  devDebioUseTokenName: ""
-  devDebioEscrowETHAddress: ""
-  devDebioSubstrateWs: ""
-  devUrlFaucet: ""
-  devWeb3Rpc: ""
-  daiContractAddress: ""
-  debioApiKey: ""
   startupProbe:
     path: ""
   livenessProbe:

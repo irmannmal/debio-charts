@@ -60,24 +60,3 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
-
-{{/*
-Create the name of recaptchaSiteKey secret.
-*/}}
-{{- define "debio-customer-ui.recaptchaSiteKeySecretName" -}}
-{{- printf "%s-%s" (include "debio-customer-ui.fullname" .) "recaptcha-site-key" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of debioEscrowETHAddress secret.
-*/}}
-{{- define "debio-customer-ui.debioEscrowETHAddressSecretName" -}}
-{{- printf "%s-%s" (include "debio-customer-ui.fullname" .) "debio-escrow-eth-address" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of debioApiKey secret.
-*/}}
-{{- define "debio-customer-ui.debioApiKeySecretName" -}}
-{{- printf "%s-%s" (include "debio-customer-ui.fullname" .) "debio-api-key" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}

@@ -47,48 +47,6 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          env:
-            {{- if .Values.config.recaptchaSiteKeyy }}
-            - name: VUE_APP_RECAPTCHA_SITE_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-customer-ui.recaptchaSiteKeySecretName" . }}
-                  key: recaptchaSiteKey
-            {{- end }}
-            {{- if .Values.config.appRole }}
-            - name: VUE_APP_ROLE
-              value: "{{ .Values.config.appRole }}"
-            {{- end }}
-            {{- if .Values.config.debioUseTokenName }}
-            - name: VUE_APP_DEBIO_USE_TOKEN_NAME
-              value: "{{ .Values.config.debioUseTokenName }}"
-            {{- end }}
-            {{- if .Values.config.debioEscrowETHAddress }}
-            - name: VUE_APP_DEBIO_ESCROW_ETH_ADDRESS
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-customer-ui.debioEscrowETHAddressSecretName" . }}
-                  key: debioEscrowETHAddress
-            {{- end }}
-            {{- if .Values.config.debioSubstrateWs }}
-            - name: VUE_APP_DEBIO_SUBSTRATE_WS
-              value: "{{ .Values.config.debioSubstrateWs }}"
-            {{- end }}
-            {{- if .Values.config.web3Rpc }}
-            - name: VUE_APP_WEB3_RPC
-              value: "{{ .Values.config.web3Rpc }}"
-            {{- end }}
-            {{- if .Values.config.debioBackendApi }}
-            - name: VUE_APP_BACKEND_API
-              value: "{{ .Values.config.debioBackendApi }}"
-            {{- end }}
-            {{- if .Values.config.debioApiKey }}
-            - name: VUE_APP_DEBIO_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "debio-customer-ui.debioApiKeySecretName" . }}
-                  key: debioApiKey
-            {{- end }}
           ports:
             - name: http
               containerPort: 80
