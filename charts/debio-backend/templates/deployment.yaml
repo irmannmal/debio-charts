@@ -250,6 +250,62 @@ spec:
                   name: {{ include "debio-backend.storageBaseURISecretName" . }}
                   key: storageBaseURI
             {{- end }}
+            {{- if .Values.config.pinata.apiKey }}
+            - name: PINATA_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: apiKey
+            {{- end }}
+            {{- if .Values.config.pinata.secretKey }}
+            - name: PINATA_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: secretKey
+            {{- end }}
+            {{- if .Values.config.pinata.email }}
+            - name: PINATA_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: email
+            {{- end }}
+            {{- if .Values.config.pinata.userID }}
+            - name: PINATA_USER_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: userID
+            {{- end }}
+            {{- if .Values.config.pinata.emailVerified }}
+            - name: PINATA_EMAIL_VERIFIED
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: emailVerified
+            {{- end }}
+            {{- if .Values.config.pinata.mfaEnable }}
+            - name: PINATA_MFA_ENABLED
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: mfaEnable
+            {{- end }}
+            {{- if .Values.config.pinata.pinPolicyRegionID }}
+            - name: PINATA_PIN_POLICY_REGION_ID
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: pinPolicyRegionID
+            {{- end }}
+            {{- if .Values.config.pinata.pinPolicyRegionReplCount }}
+            - name: PINATA_PIN_POLICY_REGION_REPL_COUNT
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "debio-backend.pinataSecretName" . }}
+                  key: pinPolicyRegionReplCount
+            {{- end }}
             {{- if .Values.config.unstake.interval }}
             - name: UNSTAKE_INTERVAL
               value: "{{ .Values.config.unstake.interval }}"

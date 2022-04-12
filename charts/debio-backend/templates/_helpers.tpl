@@ -181,6 +181,13 @@ Create the name of storageBaseURI secret.
 {{- end }}
 
 {{/*
+Create the name of pinata secret.
+*/}}
+{{- define "debio-backend.pinataSecretName" -}}
+{{- printf "%s-%s" (include "debio-backend.fullname" .) "pinata" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of serviceAccountBase64 secret.
 */}}
 {{- define "debio-backend.serviceAccountSecretName" -}}

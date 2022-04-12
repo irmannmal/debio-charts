@@ -51,6 +51,15 @@ config:
     emails: ""
   bucketname: ""
   storageBaseURI: ""
+  pinata:
+    apiKey: ""
+    secretKey: ""
+    email: ""
+    userID: ""
+    emailVerified: ""
+    mfaEnable: ""
+    pinPolicyRegionID: ""
+    pinPolicyRegionReplCount: ""
   google:
     serviceAccountBase64: ""
   unstake:
