@@ -22,6 +22,7 @@ config:
     #   keys:
     #     private: ""
     #     public: ""
+    #   telemetry: false
     #   sessionInjectionEnabled: false
     #   sessionKeys: {}
     # - name: node2
@@ -30,6 +31,7 @@ config:
     #   keys:
     #     private: ""
     #     public: ""
+    #   telemetry: false
     #   sessionInjectionEnabled: false
     #   sessionKeys: {}
     # - name: archive1
@@ -39,6 +41,7 @@ config:
     #   keys:
     #     private: ""
     #     public: ""
+    #   telemetry: false
     #   sessionInjectionEnabled: false
     #   sessionKeys: {}
     # - name: validator1
@@ -47,6 +50,7 @@ config:
     #   keys:
     #     private: ""
     #     public: ""
+    #   telemetry: false
     #   sessionInjectionEnabled: true
     #   sessionKeys:
     #     keySeed: ""
@@ -60,6 +64,7 @@ config:
     #   keys:
     #     private: ""
     #     public: ""
+    #   telemetry: false
     #   sessionInjectionEnabled: true
     #   sessionKeys:
     #     keySeed: ""
@@ -67,6 +72,8 @@ config:
     #     babe: ""
     #     imonline: ""
     #     beefy: ""
+    #   telemetry: false
+  telemetryUrl: ""
   extraBootnodes: []
     # - "/dns/debio-node-0/tcp/30333/p2p/QmRpheLN4JWdAnY7HGJfWFNbfkQCb6tFf4vvA6hgjMZKrR"
 
