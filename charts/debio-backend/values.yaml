@@ -65,6 +65,8 @@ config:
   unstake:
     interval: ""
     timer: ""
+  sentry:
+    dsn: ""
   healthcheck: ""
   startupProbe:
     path: ""
