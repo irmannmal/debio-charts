@@ -17,7 +17,7 @@ DeBio Network Helm Charts
 ## Chart Sources
 
 * `charts/debio-node`: [DeBio Node Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-node)
-* `charts/debio-indexer`: [DeBio Indexer Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-indexer)
+* `charts/debio-background-worker`: [DeBio Indexer Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-background-worker)
 * `charts/debio-backend`: [DeBio API Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-backend)
 * `charts/debio-customer-ui`: [DeBio App Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-customer-ui)
 * `charts/debio-frontend`: [DeBio Lab Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-frontend)

@@ -326,6 +326,10 @@ spec:
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /etc/google/sa_credentials.json
             {{- end }}
+            {{- if .Values.config.google.parent }}
+            - name: GCS_PARENT
+              value: .Values.config.google.parent
+            {{- end }}
           {{- if .Values.config.google.serviceAccountBase64 }}
           volumeMounts:
             - name: google-service-account-credentials

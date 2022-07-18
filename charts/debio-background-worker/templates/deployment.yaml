@@ -65,6 +65,10 @@ spec:
                   name: {{ include "debio-background-worker.elasticSearchSecretName" . }}
                   key: username
             {{- end }}
+            {{- if .Values.config.google.parent }}
+            - name: GCS_PARENT
+              value: .Values.config.google.parent
+            {{- end }}
             {{- if .Values.config.minimalStartingBlock }}
             - name: MINIMAL_STARTING_BLOCK
               valueFrom:

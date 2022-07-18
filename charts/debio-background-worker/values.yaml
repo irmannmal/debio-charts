@@ -18,6 +18,8 @@ config:
     node: ""
     password: ""
     username: ""
+  google:
+    parent: ""
   minimalStartingBlock: ""
   requestServiceContractAddress: ""
   substrateUrl: ""
