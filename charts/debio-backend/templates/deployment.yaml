@@ -327,7 +327,7 @@ spec:
               value: /etc/google/sa_credentials.json
             {{- end }}
             {{- if .Values.config.google.parent }}
-            - name: GCS_PARENT
+            - name: PARENT
               value: .Values.config.google.parent
             {{- end }}
           {{- if .Values.config.google.serviceAccountBase64 }}
