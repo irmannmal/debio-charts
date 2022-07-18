@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "debio-indexer.fullname" . }}
+  name: {{ include "debio-background-worker.fullname" . }}
   labels:
-    {{- include "debio-indexer.labels" . | nindent 4 }}
+    {{- include "debio-background-worker.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "debio-indexer.selectorLabels" . | nindent 6 }}
+      {{- include "debio-background-worker.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "debio-indexer.selectorLabels" . | nindent 8 }}
+        {{- include "debio-background-worker.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "debio-indexer.serviceAccountName" . }}
+      serviceAccountName: {{ include "debio-background-worker.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       {{- with .Values.nodeSelector }}
@@ -52,31 +52,31 @@ spec:
             - name: ELASTICSEARCH_NODE
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.elasticSearchSecretName" . }}
+                  name: {{ include "debio-background-worker.elasticSearchSecretName" . }}
                   key: node
             - name: ELASTICSEARCH_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.elasticSearchSecretName" . }}
+                  name: {{ include "debio-background-worker.elasticSearchSecretName" . }}
                   key: password
             - name: ELASTICSEARCH_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.elasticSearchSecretName" . }}
+                  name: {{ include "debio-background-worker.elasticSearchSecretName" . }}
                   key: username
             {{- end }}
             {{- if .Values.config.minimalStartingBlock }}
             - name: MINIMAL_STARTING_BLOCK
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.minimalStartingBlockSecretName" . }}
+                  name: {{ include "debio-background-worker.minimalStartingBlockSecretName" . }}
                   key: minimalStartingBlock
             {{- end }}
             {{- if .Values.config.requestServiceContractAddress }}
             - name: REQUEST_SERVICE_CONTRACT_ADDRESS
               valueFrom:
                 secretKeyRef:
-                  name: {{ include "debio-indexer.requestServiceContractAddressSecretName" . }}
+                  name: {{ include "debio-background-worker.requestServiceContractAddressSecretName" . }}
                   key: requestServiceContractAddress
             {{- end }}
             {{- if .Values.config.substrateUrl }}
