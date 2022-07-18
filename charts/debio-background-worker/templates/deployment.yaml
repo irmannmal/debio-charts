@@ -39,6 +39,15 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.config.google.serviceAccountBase64 }}
+      volumes:
+        - name: google-service-account-credentials
+          secret:
+            secretName: {{ include "debio-background-worker.serviceAccountSecretName" . }}
+            items:
+              - key: serviceAccount
+                path: sa_credentials.json
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -64,6 +73,10 @@ spec:
                 secretKeyRef:
                   name: {{ include "debio-background-worker.elasticSearchSecretName" . }}
                   key: username
+            {{- end }}
+            {{- if .Values.config.google.serviceAccountBase64 }}
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/google/sa_credentials.json
             {{- end }}
             {{- if .Values.config.google.parent }}
             - name: PARENT
@@ -91,6 +104,12 @@ spec:
             - name: WEB3_RPC_HTTPS
               value: {{ .Values.config.web3RpcHttps }}
             {{- end }}
+          {{- if .Values.config.google.serviceAccountBase64 }}
+          volumeMounts:
+            - name: google-service-account-credentials
+              mountPath: /etc/google
+              readOnly: true
+          {{- end }}
           ports:
             - name: http
               containerPort: 3000
