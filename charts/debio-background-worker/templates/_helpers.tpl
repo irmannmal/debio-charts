@@ -88,3 +88,10 @@ Create the name of minimal substrate Url secret.
 {{- define "debio-background-worker.substrateUrlSecretName" -}}
 {{- printf "%s-%s" (include "debio-background-worker.fullname" .) "substrate-url" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
+
+{{/*
+Create the name of serviceAccountBase64 secret.
+*/}}
+{{- define "debio-background-worker.serviceAccountSecretName" -}}
+{{- printf "%s-%s" (include "debio-background-worker.fullname" .) "service-account" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
