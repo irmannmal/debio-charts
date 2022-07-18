@@ -328,7 +328,7 @@ spec:
             {{- end }}
             {{- if .Values.config.google.parent }}
             - name: PARENT
-              value: value: {{ .Values.config.google.parent }}
+              value: {{ .Values.config.google.parent }}
             {{- end }}
           {{- if .Values.config.google.serviceAccountBase64 }}
           volumeMounts:
