@@ -57,6 +57,10 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{- if .Values.config.postgres.dbHost }}
+            - name: HOST_POSTGRES
+              value: {{ .Values.config.postgres.dbHost }}
+            {{- end }}
             {{- if .Values.config.postgres.dbName }}
             - name: DB_POSTGRES
               value: {{ .Values.config.postgres.dbName }}

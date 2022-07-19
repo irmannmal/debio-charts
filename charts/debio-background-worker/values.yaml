@@ -15,6 +15,7 @@ imagePullSecrets: []
 
 config:
   postgres:
+    dbHost: ""
     dbName: ""
     dbLocationName: ""
   elasticSearch:
