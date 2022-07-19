@@ -57,6 +57,14 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
+            {{- if .Values.config.postgres.dbName }}
+            - name: DB_POSTGRES
+              value: {{ .Values.config.postgres.dbName }}
+            {{- end }}
+            {{- if .Values.config.postgres.dbLocationName }}
+            - name: DB_LOCATION
+              value: {{ .Values.config.postgres.dbLocationName }}
+            {{- end }}
             {{- if and .Values.config.elasticSearch.node .Values.config.elasticSearch.password .Values.config.elasticSearch.username }}
             - name: ELASTICSEARCH_NODE
               valueFrom:
