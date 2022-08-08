@@ -23,8 +23,6 @@ config:
     #     private: ""
     #     public: ""
     #   telemetry: false
-    #   sessionInjectionEnabled: false
-    #   sessionKeys: {}
     # - name: node2
     #   bootnode: true
     #   validator: false
@@ -32,8 +30,6 @@ config:
     #     private: ""
     #     public: ""
     #   telemetry: false
-    #   sessionInjectionEnabled: false
-    #   sessionKeys: {}
     # - name: archive1
     #   bootnode: true
     #   archive: true
@@ -42,8 +38,6 @@ config:
     #     private: ""
     #     public: ""
     #   telemetry: false
-    #   sessionInjectionEnabled: false
-    #   sessionKeys: {}
     # - name: validator1
     #   bootnode: true
     #   validator: true
@@ -51,27 +45,12 @@ config:
     #     private: ""
     #     public: ""
     #   telemetry: false
-    #   sessionInjectionEnabled: true
-    #   sessionKeys:
-    #     keySeed: ""
-    #     grandpa: ""
-    #     babe: ""
-    #     imonline: ""
-    #     beefy: ""
     # - name: validator2
     #   bootnode: true
     #   validator: true
     #   keys:
     #     private: ""
     #     public: ""
-    #   telemetry: false
-    #   sessionInjectionEnabled: true
-    #   sessionKeys:
-    #     keySeed: ""
-    #     grandpa: ""
-    #     babe: ""
-    #     imonline: ""
-    #     beefy: ""
     #   telemetry: false
   telemetryUrl: ""
   extraBootnodes: []

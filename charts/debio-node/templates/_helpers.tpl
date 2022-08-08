@@ -90,22 +90,8 @@ Create the name of the ingress websocket-rpc
 {{- end }}
 
 {{/*
-Create the name of session injection job.
-*/}}
-{{- define "debio-node.sessionInjectionJobName" -}}
-{{- printf "%s-%s" (include "debio-node.fullname" .) "session-injection" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
 Create the name of node key secret.
 */}}
 {{- define "debio-node.nodeKeySecretName" -}}
 {{- printf "%s-%s" (include "debio-node.fullname" .) "node-key" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
-{{- end }}
-
-{{/*
-Create the name of session key secret.
-*/}}
-{{- define "debio-node.sessionKeySecretName" -}}
-{{- printf "%s-%s" (include "debio-node.fullname" .) "session-key" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}

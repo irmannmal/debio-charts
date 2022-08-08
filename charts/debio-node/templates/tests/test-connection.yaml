@@ -10,6 +10,6 @@ spec:
   containers:
     - name: wget
       image: busybox
-      command: ['wget']
-      args: ['{{ include "debio-node.name" . }}-{{ .name }}-0.{{ include "debio-node.name" . }}-{{ .name }}.{{ $.Release.Namespace }}.svc.cluster.local:9933']
+      command: ["wget"]
+      args: ["{{ include "debio-node.name" . }}-{{ .name }}-0.{{ include "debio-node.name" . }}-{{ .name }}.{{ $.Release.Namespace }}.svc.cluster.local:9933"]
   restartPolicy: Never
