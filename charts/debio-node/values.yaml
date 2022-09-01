@@ -16,42 +16,54 @@ imagePullSecrets: []
 config:
   chain: ""
   nodes: []
-    # - name: node1
-    #   bootnode: true
-    #   validator: false
+    # - name: full1
     #   keys:
     #     private: ""
     #     public: ""
-    #   telemetry: false
-    # - name: node2
-    #   bootnode: true
     #   validator: false
+    #   archive: false
+    #   bootnode: true
+    #   allowIngressP2P: true
+    #   allowIngressHttpRPC: false
+    #   allowIngressWsRPC: true
+    #   allowIngressPrometheus: true
+    #   telemetry: true
+    # - name: full2
     #   keys:
     #     private: ""
     #     public: ""
-    #   telemetry: false
+    #   validator: false
+    #   archive: false
+    #   bootnode: true
+    #   allowIngressP2P: true
+    #   allowIngressHttpRPC: false
+    #   allowIngressWsRPC: true
+    #   allowIngressPrometheus: true
+    #   telemetry: true
     # - name: archive1
-    #   bootnode: true
-    #   archive: true
+    #   keys:
+    #     private: ""
+    #     public: ""
     #   validator: false
-    #   keys:
-    #     private: ""
-    #     public: ""
-    #   telemetry: false
+    #   archive: true
+    #   bootnode: true
+    #   allowIngressP2P: false
+    #   allowIngressHttpRPC: false
+    #   allowIngressWsRPC: true
+    #   allowIngressPrometheus: true
+    #   telemetry: true
     # - name: validator1
-    #   bootnode: true
-    #   validator: true
     #   keys:
     #     private: ""
     #     public: ""
-    #   telemetry: false
-    # - name: validator2
-    #   bootnode: true
     #   validator: true
-    #   keys:
-    #     private: ""
-    #     public: ""
-    #   telemetry: false
+    #   archive: true
+    #   bootnode: true
+    #   allowIngressP2P: false
+    #   allowIngressHttpRPC: false
+    #   allowIngressWsRPC: false
+    #   allowIngressPrometheus: true
+    #   telemetry: true
   telemetryUrl: ""
   extraBootnodes: []
     # - "/dns/debio-node-0/tcp/30333/p2p/QmRpheLN4JWdAnY7HGJfWFNbfkQCb6tFf4vvA6hgjMZKrR"
@@ -75,14 +87,18 @@ securityContext:
   runAsUser: 1001
 
 services:
+  p2p:
+    enabled: false
+    port: 30333
   httpRPC:
     enabled: false
-    type: ClusterIP
     port: 9933
   websocketRPC:
     enabled: false
-    type: ClusterIP
     port: 9944
+  prometheus:
+    enabled: false
+    port: 9615
 
 ingress:
   httpRPC:

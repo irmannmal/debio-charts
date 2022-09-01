@@ -5,11 +5,29 @@ metadata:
   name: {{ include "debio-node.fullname" $ }}-{{ .name }}
   labels:
     {{- include "debio-node.labels" $ | nindent 4 }}
-    component: {{ .name }}
+    node-name: {{ .name }}
+    node-key: {{ .keys.public }}
     {{- if .validator }}
-    part-of: validator
+    node-type: validator
+    {{- else if and (not .validator) .archive }}
+    node-type: archive
     {{- else }}
-    part-of: full-node
+    node-type: full
+    {{- end }}
+    {{- if .bootnode }}
+    bootnode: "true"
+    {{- end }}
+    {{- if .allowIngressP2P }}
+    allow-ingress-p2p: "true"
+    {{- end }}
+    {{- if .allowIngressHttpRPC }}
+    allow-ingress-http-rpc: "true"
+    {{- end }}
+    {{- if .allowIngressWsRPC }}
+    allow-ingress-ws-rpc: "true"
+    {{- end }}
+    {{- if .allowIngressPrometheus }}
+    allow-ingress-prometheus: "true"
     {{- end }}
 spec:
   replicas: 1
@@ -28,11 +46,29 @@ spec:
   selector:
     matchLabels:
       {{- include "debio-node.selectorLabels" $ | nindent 6 }}
-      component: {{ .name }}
+      node-name: {{ .name }}
+      node-key: {{ .keys.public }}
       {{- if .validator }}
-      part-of: validator
+      node-type: validator
+      {{- else if and (not .validator) .archive }}
+      node-type: archive
       {{- else }}
-      part-of: full-node
+      node-type: full
+      {{- end }}
+      {{- if .bootnode }}
+      bootnode: "true"
+      {{- end }}
+      {{- if .allowIngressP2P }}
+      allow-ingress-p2p: "true"
+      {{- end }}
+      {{- if .allowIngressHttpRPC }}
+      allow-ingress-http-rpc: "true"
+      {{- end }}
+      {{- if .allowIngressWsRPC }}
+      allow-ingress-ws-rpc: "true"
+      {{- end }}
+      {{- if .allowIngressPrometheus }}
+      allow-ingress-prometheus: "true"
       {{- end }}
   template:
     metadata:
@@ -42,11 +78,29 @@ spec:
       {{- end }}
       labels:
         {{- include "debio-node.selectorLabels" $ | nindent 8 }}
-        component: {{ .name }}
+        node-name: {{ .name }}
+        node-key: {{ .keys.public }}
         {{- if .validator }}
-        part-of: validator
+        node-type: validator
+        {{- else if and (not .validator) .archive }}
+        node-type: archive
         {{- else }}
-        part-of: full-node
+        node-type: full
+        {{- end }}
+        {{- if .bootnode }}
+        bootnode: "true"
+        {{- end }}
+        {{- if .allowIngressP2P }}
+        allow-ingress-p2p: "true"
+        {{- end }}
+        {{- if .allowIngressHttpRPC }}
+        allow-ingress-http-rpc: "true"
+        {{- end }}
+        {{- if .allowIngressWsRPC }}
+        allow-ingress-ws-rpc: "true"
+        {{- end }}
+        {{- if .allowIngressPrometheus }}
+        allow-ingress-prometheus: "true"
         {{- end }}
     spec:
       {{- with $.Values.imagePullSecrets }}
@@ -60,6 +114,13 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: DoNotSchedule
+          labelSelector:
+            matchLabels:
+              app.kubernetes.io/name: {{ include "debio-node.name" $ }}
       {{- with $.Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}
@@ -149,7 +210,7 @@ spec:
             - name: websocket-rpc
               containerPort: 9944
               protocol: TCP
-            - name: metrics
+            - name: prometheus
               containerPort: 9615
               protocol: TCP
           startupProbe:

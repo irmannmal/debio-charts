@@ -1,8 +1,27 @@
-# DeBio Network Helm Charts
+<div align="center">
+<img src="https://avatars.githubusercontent.com/u/76637246?s=200&v=4">
+</div>
 
-[![](https://github.com/debionetwork/charts/workflows/Release%20Charts/badge.svg?branch=main)](https://github.com/debionetwork/charts/actions)
+<div align="Center">
+<h1> DeBio Charts</h1>
+<h2> Decentralized Sovereign Biomed </h2>
+The Anonymous-First Platform for Medical and Bioinformatics Data.
+<br>
+Built on Substrate.
 
-DeBio Network Helm Charts
+<br>
+<br>
+
+[![Medium](https://img.shields.io/badge/Medium-DeBio-brightgreen?logo=medium)](https://medium.com/@debionetwork.blog)
+[![Release](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yml)
+[![Test](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yml)
+</div>
+
+---
+
+DeBio is a decentralized anonymous-first platform for medical and bioinformatics data. It uses blockchain technology as the immutable transaction ledger to support its processes.
+
+DeBio blockchain nodes are built using Substrate, Parity's blockchain framework that allows for quick development of blockchains customizable by its pallets system.
 
 ## Actions
 
@@ -17,17 +36,18 @@ DeBio Network Helm Charts
 ## Chart Sources
 
 * `charts/debio-node`: [DeBio Node Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-node)
-* `charts/debio-background-worker`: [DeBio Background Worker Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-background-worker)
 * `charts/debio-backend`: [DeBio API Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-backend)
-* `charts/debio-customer-ui`: [DeBio App Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-customer-ui)
-* `charts/debio-frontend`: [DeBio Lab Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-frontend)
+* `charts/debio-background-worker`: [DeBio Background Worker Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-background-worker)
 * `charts/debio-conversion`: [DeBio Conversion](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-conversion)
 * `charts/debio-staking-synchronizer`: [DeBio Staking Synchronizer](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-staking-synchronizer)
+* `charts/debio-frontend`: [DeBio Lab Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-frontend)
+* `charts/debio-genetic-analyst-ui`: [DeBio Lab Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-genetic-analyst-ui)
+* `charts/debio-customer-ui`: [DeBio App Chart](https://github.com/debionetwork/debio-charts/tree/main/charts/debio-customer-ui)
 
 ## Usage
 
 ```bash
-helm repo add debio https://charts.debio.network
+helm repo add debionetwork https://charts.debio.network
 helm repo update
-helm install debio-node debio/debio-node
+helm install debio-node debionetwork/debio-node
 ```

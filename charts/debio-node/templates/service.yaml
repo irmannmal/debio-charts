@@ -1,89 +1,84 @@
-{{- range .Values.config.nodes }}
+{{- if .Values.services.p2p.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "debio-node.fullname" $ }}-{{ .name }}
+  name: {{ include "debio-node.fullname" . }}-p2p
   labels:
-    {{- include "debio-node.labels" $ | nindent 4 }}
-    component: {{ .name }}
-    {{- if .validator }}
-    part-of: validator
-    {{- else }}
-    part-of: full-node
-    {{- end }}
+    {{- include "debio-node.labels" . | nindent 4 }}
+    service-name: p2p
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - name: p2p
-      port: 30333
-      protocol: TCP
+      port: {{ .Values.services.p2p.port }}
+      nodePort: {{ .Values.services.p2p.port }}
       targetPort: p2p
+      protocol: TCP
+  selector:
+    {{- include "debio-node.selectorLabels" . | nindent 4 }}
+    allow-ingress-p2p: "true"
+
+---
+
+{{- end }}
+
+{{- if or .Values.services.httpRPC.enabled .Values.services.websocketRPC.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "debio-node.fullname" . }}-rpc
+  labels:
+    {{- include "debio-node.labels" . | nindent 4 }}
+    service-name: rpc
+spec:
+  type: ClusterIP
+  ports:
+    {{- if .Values.services.httpRPC.enabled }}
     - name: http-rpc
-      port: 9933
-      protocol: TCP
+      port: {{ .Values.services.httpRPC.port }}
       targetPort: http-rpc
+      protocol: TCP
+    {{- end }}
+    {{- if .Values.services.websocketRPC.enabled }}
     - name: websocket-rpc
-      port: 9944
-      protocol: TCP
+      port: {{ .Values.services.websocketRPC.port }}
       targetPort: websocket-rpc
-    - name: metrics
-      port: 9615
       protocol: TCP
-      targetPort: metrics
+    {{- end }}
   clusterIP: None
   selector:
-    {{- include "debio-node.selectorLabels" $ | nindent 4 }}
-    component: {{ .name }}
-    {{- if .validator }}
-    part-of: validator
-    {{- else }}
-    part-of: full-node
+    {{- include "debio-node.selectorLabels" . | nindent 4 }}
+    {{- if .Values.services.httpRPC.enabled }}
+    allow-ingress-http-rpc: "true"
+    {{- end }}
+    {{- if .Values.services.websocketRPC.enabled }}
+    allow-ingress-ws-rpc: "true"
     {{- end }}
 
 ---
 
 {{- end }}
-{{- if .Values.services.httpRPC.enabled }}
+
+{{- if .Values.services.prometheus.enabled }}
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "debio-node.serviceHttpRPCName" . }}
+  name: {{ include "debio-node.fullname" . }}-prometheus
   labels:
-    {{- include "debio-node.labels" . | nindent 4 }}
-    part-of: full-node
+    {{- include "debio-node.labels" . | nindent 4 }}    
+    service-name: prometheus
 spec:
   type: ClusterIP
   ports:
-    - name: http-rpc
-      port: 9933
+    - name: prometheus
+      port: {{ .Values.services.prometheus.port }}
+      targetPort: prometheus
       protocol: TCP
-      targetPort: http-rpc
+  clusterIP: None
   selector:
     {{- include "debio-node.selectorLabels" . | nindent 4 }}
-    part-of: full-node
+    allow-ingress-prometheus: "true"
 
-{{- end }}
-{{- if and .Values.services.httpRPC.enabled .Values.services.websocketRPC.enabled }}
 ---
-
-{{- end }}
-{{- if .Values.services.websocketRPC.enabled }}
-apiVersion: v1
-kind: Service
-metadata:
-  name: {{ include "debio-node.serviceWebsocketRPCName" . }}
-  labels:
-    {{- include "debio-node.labels" . | nindent 4 }}
-    part-of: full-node
-spec:
-  type: ClusterIP
-  ports:
-    - name: websocket-rpc
-      port: 9944
-      protocol: TCP
-      targetPort: websocket-rpc
-  selector:
-    {{- include "debio-node.selectorLabels" . | nindent 4 }}
-    part-of: full-node
 
 {{- end }}
