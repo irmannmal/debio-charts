@@ -114,13 +114,6 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      topologySpreadConstraints:
-        - maxSkew: 1
-          topologyKey: kubernetes.io/hostname
-          whenUnsatisfiable: DoNotSchedule
-          labelSelector:
-            matchLabels:
-              app.kubernetes.io/name: {{ include "debio-node.name" $ }}
       {{- with $.Values.affinity }}
       affinity:
         {{- toYaml . | nindent 8 }}

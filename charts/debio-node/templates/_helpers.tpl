@@ -62,6 +62,13 @@ Create the name of the service account to use
 {{- end }}
 
 {{/*
+Create the name of the service p2p
+*/}}
+{{- define "debio-node.serviceP2PName" -}}
+{{- printf "%s-%s" (include "debio-node.fullname" .) "p2p" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
 Create the name of the service http-rpc
 */}}
 {{- define "debio-node.serviceHttpRPCName" -}}
@@ -73,6 +80,13 @@ Create the name of the service websocket-rpc
 */}}
 {{- define "debio-node.serviceWebsocketRPCName" -}}
 {{- printf "%s-%s" (include "debio-node.fullname" .) "websocket-rpc" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
+{{- end }}
+
+{{/*
+Create the name of the service prometheus
+*/}}
+{{- define "debio-node.servicePrometheusName" -}}
+{{- printf "%s-%s" (include "debio-node.fullname" .) "prometheus" | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
