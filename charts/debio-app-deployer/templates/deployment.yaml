@@ -33,9 +33,18 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          {{- if .Values.config.secrets }}
+          {{- if and .Values.config.secretsSnippet (not .Values.config.secretsStore.enabled) }}
           env:
             {{- include "debio-app-deployer.secretHelper" . | indent 10 }}
+          {{- end }}
+          {{- if and (and (and (empty .Values.config.secretsSnippet) .Values.config.secretsStore.enabled) .Values.config.secretsStore.name) .Values.config.secretsStore.providerClass }}
+          envFrom:
+            - secretRef:
+                name: {{ .Values.config.secretsStore.name }}
+          volumeMounts:
+            - name: secrets-store
+              mountPath: "/var/secrets"
+              readOnly: true
           {{- end }}
           ports:
             - name: http
@@ -76,6 +85,15 @@ spec:
           {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+      {{- if and (and (and (empty .Values.config.secretsSnippet) .Values.config.secretsStore.enabled) .Values.config.secretsStore.name) .Values.config.secretsStore.providerClass }}
+      volumes:
+        - name: secrets-store
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: {{ .Values.config.secretsStore.providerClass }}
+      {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

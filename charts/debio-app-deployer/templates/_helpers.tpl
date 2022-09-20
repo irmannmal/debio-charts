@@ -69,8 +69,8 @@ Create the name of secret.
 {{- end }}
 
 {{- define "debio-app-deployer.secretHelper"}}
-{{- if .Values.config.secrets -}}
-{{- range $line := splitList "\n" .Values.config.secrets -}}
+{{- if .Values.config.secretsSnippet -}}
+{{- range $line := splitList "\n" .Values.config.secretsSnippet -}}
 {{- $parts := regexSplit "=" . 2  }}
 - name: {{ index $parts 0 }}
   valueFrom:
