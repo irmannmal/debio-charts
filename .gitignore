@@ -1,3 +1,24 @@
-# Helm chart automated files
-/charts/*/charts
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OSX Operating System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
 .idea
+.vscode
+
+# Build
+/charts/*/charts
+
+# Environment File
+.env

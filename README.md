@@ -3,15 +3,16 @@
 </div>
 
 <div align="Center">
-<h1> DeBio Charts</h1>
-<h2> Decentralized Sovereign Biomed </h2>
+<h1>DeBio Network Charts</h1>
+<h2>Decentralized Sovereign Biomed</h2>
 The Anonymous-First Platform for Medical and Bioinformatics Data.
 
 <br>
+<br>
 
-[![Medium](https://img.shields.io/badge/Medium-DeBio-brightgreen?logo=medium)](https://medium.com/@debionetwork.blog)
 [![Releaser](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yaml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yaml)
 [![Tester](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yaml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yaml)
+[![Medium](https://img.shields.io/badge/Medium-DeBio-brightgreen?logo=medium)](https://medium.com/@debionetwork.blog)
 
 </div>
 
