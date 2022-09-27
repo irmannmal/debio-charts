@@ -34,8 +34,9 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           {{- if and .Values.config.secretsSnippet (not .Values.config.secretsStore.enabled) }}
-          env:
-            {{- include "debio-app-deployer.secretHelper" . | indent 10 }}
+          envFrom:
+            - secretRef:
+                name: {{ include "debio-app-deployer.secretName" . }}
           {{- end }}
           {{- if and (and (and (empty .Values.config.secretsSnippet) .Values.config.secretsStore.enabled) .Values.config.secretsStore.name) .Values.config.secretsStore.providerClass }}
           envFrom:

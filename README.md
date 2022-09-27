@@ -1,7 +1,6 @@
 <div align="center">
 <img src="https://avatars.githubusercontent.com/u/76637246?s=200&v=4">
 </div>
-
 <div align="Center">
 <h1>DeBio Network Charts</h1>
 <h2>Decentralized Sovereign Biomed</h2>
@@ -10,8 +9,6 @@ The Anonymous-First Platform for Medical and Bioinformatics Data.
 <br>
 <br>
 
-[![Releaser](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yaml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/releaser.yaml)
-[![Tester](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yaml/badge.svg)](https://github.com/debionetwork/debio-charts/actions/workflows/tester.yaml)
 [![Medium](https://img.shields.io/badge/Medium-DeBio-brightgreen?logo=medium)](https://medium.com/@debionetwork.blog)
 
 </div>

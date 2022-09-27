@@ -4,10 +4,16 @@
       "pattern": "^http://127.0.0.1"
     },
     {
+      "pattern": "^https://127.0.0.1"
+    },
+    {
       "pattern": "^http://localhost"
     },
     {
-      "pattern": "^https://medium.com/@debionetwork.blog"
+      "pattern": "^https://localhost"
+    },
+    {
+      "pattern": "^https://medium.com/@myriadsocial.blog"
     }
   ]
 }
