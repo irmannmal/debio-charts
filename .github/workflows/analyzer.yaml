@@ -29,7 +29,7 @@ jobs:
     name: Security CII Best Practices
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Perform Scorecards Analysis
         uses: ossf/scorecard-action@v2.2.0
         with:
@@ -53,7 +53,7 @@ jobs:
     name: Check Dead Link
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Perform Check Dead Link on Markdown
