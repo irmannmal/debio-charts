@@ -17,19 +17,8 @@ The Anonymous-First Platform for Medical and Bioinformatics Data.
 
 DeBio Network is a decentralized anonymous-first platform for medical and bioinformatics data. It uses blockchain technology as the immutable transaction ledger to support its processes.
 
-## Actions
-
-* [@helm/kind-action](https://github.com/helm/kind-action)
-* [@helm/chart-testing-action](https://github.com/helm/chart-testing-action)
-* [@helm/chart-releaser-action](https://github.com/helm/chart-releaser-action)
-
-## Project Status
-
-`main` supports Helm 3 only, i. e. both `v1` and `v2` [API version](https://helm.sh/docs/topics/charts/#the-apiversion-field) charts are installable.
-
 ## Chart Sources
 
-* `charts/debio-node`: [DeBio Node Chart](./charts/debio-node)
 * `charts/debio-app-deployer`: [DeBio App Deployer Chart](./charts/debio-app-deployer)
 
 ## Usage
@@ -37,5 +26,5 @@ DeBio Network is a decentralized anonymous-first platform for medical and bioinf
 ```bash
 helm repo add debionetwork https://charts.debio.network
 helm repo update
-helm install debio-node debionetwork/debio-node
+helm install debio-backend debionetwork/debio-app-deployer
 ```
